@@ -18,18 +18,18 @@ if ENABLE_PADDLE:
     jieba.enable_paddle()
 jieba.initialize()
 
-cache_file_suffix = "cache.搜索后缀.json"
-cache_file_filepath = "cache.搜索路径.json"
-cache_file_valid_filepath = "cache.有效路径.json"
-cache_file_sentences = "cache.连续中文.json"
-cache_file_raw_sentences = "cache.连续中文.txt"
-cache_file_sentences_debug_with_path = "cache.连续中文-调试版本.json"
-cache_file_words = "cache.分词.json"
+cache_file_statistics = "cache.0.统计信息.json"
+cache_file_suffix = "cache.1.搜索后缀.json"
+cache_file_filepath = "cache.2.搜索路径.json"
+cache_file_valid_filepath = "cache.3.有效路径.json"
+cache_file_sentences = "cache.4.连续中文.json"
+cache_file_raw_sentences = "cache.5.连续中文.txt"
+cache_file_sentences_debug_with_path = "cache.6.连续中文-调试版本.json"
+cache_file_words = "cache.7.分词.json"
 cache_file_words_dict = {
-    True: "cache.words.paddle.json",
-    False: "cache.words.no_paddle.json",
+    True: "cache.8.words.paddle.json",
+    False: "cache.8.words.no_paddle.json",
 }
-cache_file_statistics = "cache.统计信息.json"
 
 re_chinese_words = re.compile('([\u4e00-\u9fa5]+)+?')
 
