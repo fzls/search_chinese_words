@@ -151,6 +151,7 @@ def extract_chinese_words_in_dir(dirpath: str, split_words=False) -> List[str]:
     logger.info("开始统计中文句子")
     if use_cache and os.path.exists(cache_file_sentences):
         sentences = set(load_cache("中文句子", cache_file_sentences))
+        valid_target_files = load_cache("有效路径", cache_file_valid_filepath)
     else:
         for idx, filepath in enumerate(target_files):
             print(f"\r[{idx + 1}/{len(target_files)}]: {filepath}", end='', flush=True)
@@ -198,8 +199,17 @@ def extract_chinese_words_in_dir(dirpath: str, split_words=False) -> List[str]:
 
     logger.info(f"开始统计字数信息")
     counter = Counter()
+
+    counter["中文句子-句数"] = len(sentences)
     for sentence in sentences:
-        counter["中文句子字数"] += len(sentence)
+        counter["中文句子-字数"] += len(sentence)
+
+    counter["中文分词-词数"] = len(words)
+    for word in words:
+        counter["分词后-字数"] += len(word)
+
+    counter["搜索的文件数"] = len(target_files)
+    counter["包含中文的文件数"] = len(valid_target_files)
 
     save_cache("统计信息", counter, cache_file_statistics)
 
