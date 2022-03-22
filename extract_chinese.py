@@ -11,8 +11,8 @@ from log import logger
 ENABLE_PADDLE = True
 # ENABLE_PADDLE = False
 
-ENABLE_CACHE = True
-# ENABLE_CACHE = False
+# ENABLE_CACHE = True
+ENABLE_CACHE = False
 
 if ENABLE_PADDLE:
     jieba.enable_paddle()
